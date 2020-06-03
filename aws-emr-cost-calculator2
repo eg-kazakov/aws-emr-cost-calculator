@@ -338,6 +338,7 @@ class EmrCostCalculator:
                 fleet['InstanceTypeSpecifications'][0]['InstanceType'],
                 fleet['InstanceFleetType'],
                 fleet['InstanceTypeSpecifications'][0]['EbsBlockDevices']
+                if 'EbsBlockDevices' in fleet['InstanceTypeSpecifications'][0] else []
             )
 
             instance_fleets.append(inst_fleet)
