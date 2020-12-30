@@ -1,0 +1,4 @@
+docopt
+boto3
+retrying
+requests

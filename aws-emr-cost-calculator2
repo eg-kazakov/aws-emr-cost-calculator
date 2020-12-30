@@ -93,7 +93,8 @@ class Ec2EmrPricing:
         emr_pricing = requests.get(emr_region_url).json()
         sku_to_instance_type = {}
         for sku in emr_pricing['products']:
-            if emr_pricing['products'][sku]['attributes']['softwareType'] \
+            if 'softwareType' in  emr_pricing['products'][sku]['attributes'] and \
+                    emr_pricing['products'][sku]['attributes']['softwareType'] \
                     == 'EMR':
                 sku_to_instance_type[sku] = \
                     emr_pricing['products'][sku]['attributes']['instanceType']
